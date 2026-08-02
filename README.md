@@ -1,29 +1,54 @@
-# ระบบจัดการร้านมือถือ - Staff Mobile App (Flutter)
+# ระบบจัดการร้านมือถือ - Staff App (Flutter)
 
-แอปพนักงานสำหรับจัดการร้านมือถือ เชื่อมต่อ Shopee + Lazada + หน้าร้าน
+แอปพนักงานสำหรับจัดการร้านมือถือ เชื่อม Shopee + Lazada + หน้าร้าน
 
-## คุณสมบัติที่มี
+## คุณสมบัติ
+- Login (เบอร์โทร์ + PIN)
+- Dashboard
+- สแกน IMEI
+- ออเดอร์
+- สต็อก
+- Bottom Navigation
 
-- หน้า Login (เบอร์โทร์ + PIN)
-- หน้าหลัก (Dashboard)
-- สแกน IMEI ด้วยกล้อง
-- รายการออเดอร์
-- หน้าสต็อก
-- GitHub Actions สร้าง APK อัตโนมัติ
-
-## วิธีเบิลด APK จาก GitHub Actions
+## สร้าง APK (แอนดรอยด์) ผ่าน GitHub Actions
 
 1. ไปที่แท็บ **Actions**
-2. เลือก workflow **Build APK**
+2. เลือก **Build APK**
 3. กด **Run workflow**
-4. เมื่อเสร็จ กดที่ Artifacts เพื่อดาวน์โหลด `app-release.apk`
+4. รอไฟล์ APK จาก Artifacts (`app-release`)
 
-## วิธีรันท้องถึง
+## สร้างบนเครื่องตัวเอง (Android + iOS)
 
+### ต้องการ
 ```bash
 git clone https://github.com/gmmblspprt-ai/mobile-shop-staff-app.git
 cd mobile-shop-staff-app
-flutter create . --project-name mobile_shop_app
+flutter create . --project-name mobile_shop_app --org com.mobileshop
 flutter pub get
+```
+
+### รันทดสอบ
+```bash
 flutter run
 ```
+
+### Build Android APK
+```bash
+flutter build apk --release
+# ไฟล์: build/app/outputs/flutter-apk/app-release.apk
+```
+
+### Build iOS (ต้องใช้ Mac + Xcode)
+```bash
+flutter build ipa
+# หรือ
+flutter build ios --release
+```
+
+**หมายเหตุ iOS:**
+- ต้องใช้เครื่อง Mac
+- ติดตั้ง Xcode + CocoaPods
+- ต้องมี Apple Developer Account (ถ้าจะติดตั้งบนเครื่องจริง)
+
+## โครงสร้างโปรเจกต์
+Flutter ใช้ codebase เดียวกันสำหรับทั้ง Android และ iOS
