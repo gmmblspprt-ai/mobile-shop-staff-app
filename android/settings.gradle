@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+    plugins {
+        id "org.jetbrains.kotlin.android" version "1.9.24"
+    }
+}
+
+rootProject.name = "mobile_shop_staff_app"
+include ':app'
